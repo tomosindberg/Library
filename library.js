@@ -12,8 +12,8 @@
 var shelf = [],
     list =[],
     booksOnShelf= [],
-    bookT = [],
-    bookA = [];
+    bookT = [],   //book title
+    bookA = [];   //book author
 
 var Library = {
   removeShelf: function(position, remove) {
@@ -52,7 +52,7 @@ var Shelf = {
     //this.listBooks();
   },
   listBooks: function() {
-    booksPerShelf = 2;
+    var booksPerShelf = 2;
     var i = 0;
     for (x=0; x<shelf.length; x++) {
       for(j=0; j<booksPerShelf; j++) {
@@ -81,19 +81,19 @@ console.log(shelf);
 Library.listShelf();
 Shelf.listBooks();
 
-// Shelf.addBook("In Search of Lost Time", "Marcel Proust");
-// Shelf.addBook("Ulyssess", "James Joyce");
-// Shelf.addBook("Moby Dick", "Herman Melville");
-// Shelf.addBook("Hamlet", "William Shakespeare");
-// Shelf.addBook("War and Peace", "Leo Tolstoy");
-// Shelf.addBook("The Odyssey", "Homer");
-// Shelf.addBook("The Divine Comedy", "Dante Alighieri");
-// Shelf.addBook("The Great Gatsby", "F. Scott Fitzgerald");
-// Shelf.addBook("Madame Bovary", "Gustave Flaubert");
-// Shelf.listBooks();
+Shelf.addBook("In Search of Lost Time", "Marcel Proust");
+Shelf.addBook("Ulyssess", "James Joyce");
+Shelf.addBook("Moby Dick", "Herman Melville");
+Shelf.addBook("Hamlet", "William Shakespeare");
+Shelf.addBook("War and Peace", "Leo Tolstoy");
+Shelf.addBook("The Odyssey", "Homer");
+Shelf.addBook("The Divine Comedy", "Dante Alighieri");
+Shelf.addBook("The Great Gatsby", "F. Scott Fitzgerald");
+Shelf.addBook("Madame Bovary", "Gustave Flaubert");
+Shelf.listBooks();
 // // //console.log(list);
 
 // // Shelf.listBooks();
-// Shelf.removeBook("Moby Dick");
+Shelf.removeBook("Moby Dick");
 // // //Shelf.addBooksToShelf(2);
-// Shelf.listBooks();
+ Shelf.listBooks();
