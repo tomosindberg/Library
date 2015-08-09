@@ -24,8 +24,8 @@ var Library = {
   addShelf: function(add) {
     var i = shelf.length;
     for(j=0; j<add; j++) {
-    shelf.push({shelf: i});
-    i++;
+      shelf.push({shelf: i});
+      i++;
     }
   },
   listShelf: function() {
