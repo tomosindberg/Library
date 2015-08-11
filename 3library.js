@@ -33,15 +33,17 @@ shelf[3] = new Shelf(3);
 shelf[4] = new Shelf(4);
 
 library[0] = new Library("seattle");
-
+  //console.log(book);
 convertBook();
-
+  //console.log(book);
 // shelf[0].addBook(0);
 // shelf[0].addBook(1);
-addAllBooks(2);
-//console.log(shelf);
-convertShelf();
-//console.log(shelf[0]);
+addAllBooksShelf(2);    ///
+   console.log(shelf[0]);
+convertShelf();  //dont need to convert num to string
+   console.log(shelf[0]);
+//   console.log(shelf[0]);
+
 library[0].addShelf(0);
 library[0].addShelf(1);
 library[0].addShelf(2);
@@ -50,13 +52,15 @@ library[0].addShelf(4);
 //library[0].removeShelf(3);
 
 //console.log(library[0].shelves);
-console.log(book);
-console.log(shelf);
-console.log(library);
+
+// console.log(book);
+// console.log(shelf);
+ console.log(library);
 
 
-//shelf[2].remove(5);
-//console.log(shelf[2].books);
+shelf[2].removeBook(1);
+
+console.log(shelf[2].books);
 
 
 
@@ -71,10 +75,12 @@ function Shelf(num){
 
   this.addBook = function(bookNum){
     this.books.push(book[bookNum]);
+    convertBook();
     //console.log(this.books);
   };
-  this.remove = function(x){
+  this.removeBook = function(x){
     this.books.splice(x,1);
+    convertBook();
   };
 }
 
@@ -95,18 +101,17 @@ function Library(name){
 
 function convertBook(){
     for(i=0; i<book.length; i++){
-      book[i] = book[i].title.toString() + ' : '
-      + book[i].author.toString();
+      book[i] = book[i].title.toString() + ' : ' + book[i].author.toString();
     }
 }
 
 function convertShelf(){
     for(i=0; i<shelf.length; i++){
-      shelf[i] = shelf[i].num.toString();
+      shelf[i].num = shelf[i].num.toString() + ' : ' + "hello";
     }
 }
 
-function addAllBooks(booksPerShelf){
+function addAllBooksShelf(booksPerShelf){  //add all books to shelf
   var x=0;
   var y = booksPerShelf;
   for(i=0; i<shelf.length; i++){
@@ -115,11 +120,14 @@ function addAllBooks(booksPerShelf){
     x++;
     }
     if (x<book.length){
-    y += booksPerShelf;
+    y +=booksPerShelf;
     }
   }
 }
 
+function addShelfsLibrary(){
+
+}
 
 
 
