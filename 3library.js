@@ -12,10 +12,10 @@
   //make a book.js, shelf.js, Library.js. main.js(shows add and remove function)
   //add a toString method to all shelf, book and or library
 
-book = [],
-  shelf = [],
-  library = [],
-  booksPerShelf = 3;
+var book = [],
+    shelf = [],
+    library = [],
+    booksPerShelf = 3;
 
 
 book[0] = new Book("In Search of Lost Time", "Marcel Proust");   //construct book1-9
@@ -31,8 +31,8 @@ book[8] = new Book("Madame Bovary", "Gustave Flaubert");
 shelf[0] = new Shelf(0);  //construct shelf1-5
 shelf[1] = new Shelf(1);
 shelf[2] = new Shelf(2);
-shelf[3] = new Shelf(3);
-shelf[4] = new Shelf(4);
+// shelf[3] = new Shelf(3);
+// shelf[4] = new Shelf(4);
 
 library[0] = new Library("seattle");
 
@@ -82,31 +82,35 @@ function Shelf(num){
   };
 }
 
-library[0].addShelf(0);
+
 //console.log(library[0]);
 
 function Library(name){
   this.name = name;
   this.shelves = [];
-  this.books = book;
+  // this.books = book;
 
   this.addShelf = function(shelfNum){
-    this.shelves.push(shelf[shelfNum]);
-    this.shelves.toString();
-    //console.log(this.shelves);
+    // console.log(shelf[shelfNum].books);
+    this.shelves.push("Shelf# " + shelf[shelfNum].num +"  " + shelf[shelfNum].books );
   };
   this.removeShelf = function(x){
     this.shelves.splice(x,1);
+
+    //now remove
   };
 }
 
 library[0].addShelf(0);
 library[0].addShelf(1);
 library[0].addShelf(2);
-
+// library[0].addShelf(3);
+library[0].removeShelf(2);
 //console.log(shelf[0].addBook);
 // console.log(book[4]);
- console.log(shelf[2]);
+ // console.log(shelf[0]);
+ // console.log(book[0]);
+// console.log(shelf[2]);
 console.log(library[0]);
 
 // function addAllBooksShelf(booksPerShelf){  //add all books to shelf
