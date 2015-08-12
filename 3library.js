@@ -12,9 +12,11 @@
   //make a book.js, shelf.js, Library.js. main.js(shows add and remove function)
   //add a toString method to all shelf, book and or library
 
-var book = [];
-var shelf = [];
-var library =[];
+book = [],
+  shelf = [],
+  library = [],
+  booksPerShelf = 3;
+
 
 book[0] = new Book("In Search of Lost Time", "Marcel Proust");   //construct book1-9
 book[1] = new Book("Ulyssess", "James Joyce");
@@ -33,56 +35,55 @@ shelf[3] = new Shelf(3);
 shelf[4] = new Shelf(4);
 
 library[0] = new Library("seattle");
-  //console.log(book);
-convertBook();
-  //console.log(book);
-// shelf[0].addBook(0);
-// shelf[0].addBook(1);
-addAllBooksShelf(2);    ///
-   console.log(shelf[0]);
-convertShelf();  //dont need to convert num to string
-   console.log(shelf[0]);
-//   console.log(shelf[0]);
 
-library[0].addShelf(0);
-library[0].addShelf(1);
-library[0].addShelf(2);
-library[0].addShelf(3);
-library[0].addShelf(4);
-//library[0].removeShelf(3);
+//loads books into book[i].bookString
+(function(){
+  for (i=0; i<book.length; i++){
+    book[i].bkString();
+    //console.log(book[i].bookString);
+  }
+})();
 
-//console.log(library[0].shelves);
-
-// console.log(book);
-// console.log(shelf);
- console.log(library);
-
-
-shelf[2].removeBook(1);
-
-console.log(shelf[2].books);
-
+//load books on shelf  booksPerShelf sets limit
+(function(){
+  var bkShelf = booksPerShelf;
+  var i = 0;
+  for(j=0; j<shelf.length; j++){
+    while(i<bkShelf && i<book.length){
+      shelf[j].addBook(i);
+      i++;
+    }
+    bkShelf += bkShelf;
+  }
+})();
 
 
 function Book(title, author){
   this.title = title;
   this.author = author;
+  this.bookString = [];
+
+  this.bkString = function(){
+    this.bookString = ("Title: " + this.title+ "    Author: " + this.author);
+  };
 }
 
 function Shelf(num){
   this.num = num;
   this.books = [];
 
-  this.addBook = function(bookNum){
-    this.books.push(book[bookNum]);
-    convertBook();
-    //console.log(this.books);
+  this.addBook = function(a){
+    this.num = this.num.toString();
+    this.books.push(book[a].bookString);
+      // console.log("+++" +this.books + "  ");
   };
   this.removeBook = function(x){
     this.books.splice(x,1);
-    convertBook();
   };
 }
+
+library[0].addShelf(0);
+//console.log(library[0]);
 
 function Library(name){
   this.name = name;
@@ -91,6 +92,7 @@ function Library(name){
 
   this.addShelf = function(shelfNum){
     this.shelves.push(shelf[shelfNum]);
+    this.shelves.toString();
     //console.log(this.shelves);
   };
   this.removeShelf = function(x){
@@ -98,37 +100,42 @@ function Library(name){
   };
 }
 
+library[0].addShelf(0);
+library[0].addShelf(1);
+library[0].addShelf(2);
 
-function convertBook(){
-    for(i=0; i<book.length; i++){
-      book[i] = book[i].title.toString() + ' : ' + book[i].author.toString();
-    }
-}
+//console.log(shelf[0].addBook);
+// console.log(book[4]);
+ console.log(shelf[2]);
+console.log(library[0]);
 
-function convertShelf(){
-    for(i=0; i<shelf.length; i++){
-      shelf[i].num = shelf[i].num.toString() + ' : ' + "hello";
-    }
-}
+// function addAllBooksShelf(booksPerShelf){  //add all books to shelf
+//   var x=0;
+//   var y = booksPerShelf;
+//   for(i=0; i<shelf.length; i++){
+//     while (x<y) {
+//     shelf[i].books.push(book[x]);
+//     x++;
+//     }
+//     if (x<book.length){
+//     y +=booksPerShelf;
+//     }
+//   }
+// }
 
-function addAllBooksShelf(booksPerShelf){  //add all books to shelf
-  var x=0;
-  var y = booksPerShelf;
-  for(i=0; i<shelf.length; i++){
-    while (x<y) {
-    shelf[i].books.push(book[x]);
-    x++;
-    }
-    if (x<book.length){
-    y +=booksPerShelf;
-    }
-  }
-}
-
-function addShelfsLibrary(){
-
-}
+// function convertBook(){
+//     for(i=0; i<book.length; i++){
+//       book[i] = book[i].title.toString() + ' : ' + book[i].author.toString();
+//     }
+// }
 
 
-
-
+// function convertShelf(){
+//     for(i=0; i<shelf.length; i++){
+//       shelf[i].num = shelf[i].num.toString();
+//       // shelf[i].addBook.toString();
+//       // shelf[i].removeBook.toString();
+//       //shelf[i].removeBook.splice(0,1);
+//       //console.log(shelf[i].addBook);
+//     }
+// }
