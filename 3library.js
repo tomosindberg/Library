@@ -97,7 +97,7 @@ function Library(name){
   this.removeShelf = function(x){
     this.shelves.splice(x,1);
 
-    //now remove
+    //now remove the lower shelves in Shelves
   };
 }
 
