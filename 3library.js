@@ -13,25 +13,33 @@
   //add a toString method to all shelf, book and or library
 
 var bookPage = require('./book');
-var shelfPage = require('.shelf');
+var shelfPage = require('./shelf');
 
 // var book = [];
 // var shelf = [];
 // var booksPerShelf = 3;
 var library = [];
+var libraryString = [];
+var libraryInfo = [];
 library[0] = new Library("seattle");
 
 function Library(name){
   this.name = name;
   this.shelves = [];
-  // this.books = book;
+  this.info = []; //contains books,shelves,NEED TO MAKE
 
   this.addShelf = function(shelfNum){
     // console.log(shelf[shelfNum].books);
-    this.shelves.push("Shelf# " + shelf[shelfNum].num +"  " + shelf[shelfNum].books );
+    // this.shelves.push("Shelf# " + shelf[shelfNum].num +"  " + shelf[shelfNum].books );
+    var string = shelfNum.toString();
+    this.shelves.push(string);
+    libraryString.push(string);
+    //libraryString.push(shelfPage.shelfString[shelfNum]);
+    // console.log(this.shelves);
   };
   this.removeShelf = function(x){
     this.shelves.splice(x,1);
+    libraryString.splice(x,1);
 
     //now remove the lower shelves in Shelves
   };
@@ -40,12 +48,16 @@ function Library(name){
 library[0].addShelf(0);
 library[0].addShelf(1);
 library[0].addShelf(2);
-// library[0].addShelf(3);
-library[0].removeShelf(2);
+library[0].removeShelf(1);
+
+// // library[0].addShelf(3);
+// library[0].removeShelf(2);
 //console.log(shelf[0].addBook);
 // console.log(book[4]);
  // console.log(shelf[0]);
  // console.log(book[0]);
 // console.log(shelf[2]);
-console.log(library[0]);
 
+// console.log(library[0]);
+console.log(libraryString);
+module.exports.libraryString = libraryString;
