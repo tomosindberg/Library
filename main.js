@@ -15,36 +15,12 @@ var book = require("./book"),
   shelf = require("./shelf"),
   library = require(".library");
 
-var library3 = requier(".3library");
+var library3 = require(".3library");
 
-function convert(array){
-    for(i=0; i<book.length; i++){
-      book[i] = book[i].title.toString() +' : ' + book[i].author.toString();
-    }
-}
-convert(book);
-console.log(book);
-
-// convertBook();
-
-// // shelf[0].addBook(0);
-// // shelf[0].addBook(1);
-// addAllBooks(2);
-// //console.log(shelf);
-// convertShelf();
-// //console.log(shelf[0]);
-// library[0].addShelf(0);
-// library[0].addShelf(1);
-// library[0].addShelf(2);
-// library[0].addShelf(3);
-// library[0].addShelf(4);
-// //library[0].removeShelf(3);
-
-// //console.log(library[0].shelves);
-// console.log(book);
-// console.log(shelf);
-// console.log(library);
-
-
-//shelf[2].remove(5);
-//console.log(shelf[2].books);
+// loads books into book[i].bookString
+(function(){
+  for (i=0; i<book.length; i++){
+    book[i].bkString();
+    console.log(book[i].bookString);
+  }
+})();

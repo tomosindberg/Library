@@ -1,25 +1,36 @@
-// function addBooks(){
-var book1 = new Book("In Search of Lost Time", "Marcel Proust");
-var book2 = new Book("Ulyssess", "James Joyce");
-var book3 = new Book("Moby Dick", "Herman Melville");
-var book4 = new Book("Hamlet", "William Shakespeare");
-var book5 = new Book("War and Peace", "Leo Tolstoy");
-var book6 = new Book("The Odyssey", "Homer");
-var book7 = new Book("The Divine Comedy", "Dante Alighieri");
-var book8 = new Book("The Great Gatsby", "F. Scott Fitzgerald");
-var book9 = new Book("Madame Bovary", "Gustave Flaubert");
+var book = [];
+var bookString= [];
 
-// convert book1-book9 to strings and input into an array
-// book1.toString
-// var list = [book1, book2, book3, book4, book5, book6, book7, book8, book9];
-// return list.toString();
-// }
+book[0] = new Book("In Search of Lost Time", "Marcel Proust");   //construct book1-9
+book[1] = new Book("Ulyssess", "James Joyce");
+book[2] = new Book("Moby Dick", "Herman Melville");
+book[3] = new Book("Hamlet", "William Shakespeare");
+book[4] = new Book("War and Peace", "Leo Tolstoy");
+book[5] = new Book("The Odyssey", "Homer");
+book[6] = new Book("The Divine Comedy", "Dante Alighieri");
+book[7] = new Book("The Great Gatsby", "F. Scott Fitzgerald");
+book[8] = new Book("Madame Bovary", "Gustave Flaubert");
+
+// loads books into book[i].bookString
+(function(){
+  for (i=0; i<book.length; i++){
+    book[i].bkString();
+    //console.log(book[i].bookString);
+  }
+})();
 
 function Book(title, author){
   this.title = title;
   this.author = author;
+  //this.bookString = [];
+
+  this.bkString = function(){
+    bookString.push("Title: " + this.title+ "    Author: " + this.author);
+  };
 }
 
-
-//console.log(book1.title.toString());
-console.log(book1);
+// exports.bookString = Book.bookString;
+// console.log(book[0]);
+// console.log(bookString);
+module.exports.bookString = bookString;
+module.exports.Book = Book;
