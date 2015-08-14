@@ -11,7 +11,7 @@
   //make a book.js, shelf.js, Library.js. main.js(shows add and remove function)
   //add a toString method to all shelf, book and or library
 
-var book = require("./book");
-var shelf = require("./shelf");
-var library3 = require(".3library");
-  //library = require(".library");
+// var book = require("./book");
+// var shelf = require("./shelf");
+// var library = require(".library");
+//   //library = require(".library");
