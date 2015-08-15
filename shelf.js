@@ -1,21 +1,21 @@
 
-var lPage = require('./library');
-var bPage = require('./book');
+// var lPage = require('./library');
+// var bPage = require('./book');
 
-var perShelf = 3;
-var shelf = [];
-var bookShelfs = [];
-var shelfString = lPage.libraryString;
-var bookString = bPage.bookString;
+// var perShelf = 3;
+// var shelf = [];
+// var bookShelfs = [];
+// var shelfString = lPage.libraryString;
+// var bookString = bPage.bookString;
 
-buildShelf();  //when library runs first this breaks!!!!!
-function buildShelf(){  //library.js  errored on shelfString.length
-  for(i=0; i<shelfString.length; i++){
-    shelf[i] = new Shelf(i);
-  }
-}
+// buildShelf();  //when library runs first this breaks!!!!!
+// function buildShelf(){  //library.js  errored on shelfString.length
+//   for(i=0; i<shelfString.length; i++){
+//     shelf[i] = new Shelf(i);
+//   }
+// }
 
-function Shelf(num){
+exports.Shelf = function(num){
   this.num = num;
   this.books = [];
 
@@ -38,31 +38,31 @@ function Shelf(num){
   this.removeBook = function(x){
     this.books.splice(x,1);
   };
-}
+};
 
-function addBkPerShelf(perShelf){   //add books by how many per shelf
-  // bookShelfs= [];
-  var i = 0;
-  // shelfString
-  for(s=0; s<shelfString.length; s++){
-    while(i<perShelf && i<bookString.length){
-// while(shelf[s] == 'undefined'){
-//    s++;  error when remove shelf!!!!
+// function addBkPerShelf(perShelf){   //add books by how many per shelf
+//   // bookShelfs= [];
+//   var i = 0;
+//   // shelfString
+//   for(s=0; s<shelfString.length; s++){
+//     while(i<perShelf && i<bookString.length){
+// // while(shelf[s] == 'undefined'){
+// //    s++;  error when remove shelf!!!!
+// // }
+//       shelf[s].addBook(i, s);
+//       console.log(shelf[s]);
+//       i++;
+//     }
+//     perShelf += perShelf;
+//   }
 // }
-      shelf[s].addBook(i, s);
-      console.log(shelf[s]);
-      i++;
-    }
-    perShelf += perShelf;
-  }
-}
   // var x = shelfString.indexOf(2);
   // console.log(bookString);
-addBkPerShelf(3);
+// addBkPerShelf(3);
 
-console.log(bookShelfs);
-console.log(shelf[2]);
+// console.log(bookShelfs);
+// console.log(shelf[2]);
 
-// module.exports.Shelf = Shelf();
-module.exports.shelfString = shelfString;
-module.exports.bookShelfs = bookShelfs;
+// // module.exports.Shelf = Shelf();
+// module.exports.shelfString = shelfString;
+// module.exports.bookShelfs = bookShelfs;
