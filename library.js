@@ -13,19 +13,21 @@
 //add a toString method to all shelf, book and or library
 
 var SObject = require("./shelf");
-var shelf=[];
 
+var shelf=[];
 module.exports.shelf = shelf;
 
 module.exports.Library = function Library(name){
   this.name = name;
   this.shelves = [];
+  this.books ='';
   this.string = '';
 
   this.addShelf = function(x){
-    for(i=0; i<=x; i++){
+    for(var i=0; i<=x; i++){
       if(shelf[i] === 'undefined'){
-        shelf[i] = 'No shelf';
+        // shelf[i] = 'No shelf';
+        i++;
       }
     }
     shelf[x] = new SObject.Shelf(x);
@@ -43,8 +45,20 @@ module.exports.Library = function Library(name){
     this.string();
   };
   this.string = function(){
-    x = "name: " + this.name.toString() +
-    "  shelves: " + this.shelves.toString();
+    var x = "Library:" + this.name.toString() +
+    "  Shelves:" + this.shelves.toString();
     return x;
+  };
+  this.books = function(){
+    var bString = '';
+    for(var i = 0; i<shelf.length; i++){
+      if(shelf[i] === 'undefined'){
+        i++;
+      }
+    bString = bString.concat(shelf[i].bookString.toString());
+    }
+    var addLib = "Library:" + this.name.toString() + "  ";
+    var info =addLib.concat(bString);
+    return info;
   };
 };
