@@ -1,68 +1,49 @@
+var BObject = require('./book');
+var LObject = require('./library');
+book = [];
+module.exports.book = book;
 
-// var lPage = require('./library');
-// var bPage = require('./book');
-
-// var perShelf = 3;
-// var shelf = [];
-// var bookShelfs = [];
-// var shelfString = lPage.libraryString;
-// var bookString = bPage.bookString;
-
-// buildShelf();  //when library runs first this breaks!!!!!
-// function buildShelf(){  //library.js  errored on shelfString.length
-//   for(i=0; i<shelfString.length; i++){
-//     shelf[i] = new Shelf(i);
-//   }
-// }
-
-exports.Shelf = function(num){
+module.exports.Shelf = function Shelf(num){
   this.num = num;
   this.books = [];
+  this.bookString = [];
 
-  this.addBook = function(bk, s){
-    if(s == shelfString[s]) {
-      this.num = s;
-      this.books.push(bookString[bk]);
-      bookShelfs.push( "shelf# " +s+ " " + bookString[bk]);
+  this.addBook = function(title, author){
+    var x = book.length;
+    book[x] = new BObject.Book(title, author);
+    this.books.push(title + '   ' +author);
+
+    var t = "Title:" + book[x].title.toString() + "  ";
+    var a = "Author:" + book[x].author.toString() + ",   ";
+    this.bookString += t.concat(a);
+    // this.bookString = this.bookString.toUppercase();
+  };
+  this.removeBook = function(t, a){
+    for(i=0; i<book.length; i++){
+      var title = book[i].title.search(t);
+      var author = book[i].author.search(a);
+      if (title === 0 && author === 0){
+        var del = i;
+        console.log("--->" +book[i]);
+        book[i] = 'undefined';
+        console.log("--->2" +book[i]);
+      }
     }
-    // else if(s !== shelfSting[s]) {
+    for (j=0; j<LObject.shelf[j].length; j++){
+      var index = LObject.shelf[j].books.indexOf(t);
+      console.log("!!!" +index); //!!!!!!!!!!!need to fix
 
-    // console.log(s);  breaks when shelf is removed!!
-    // else if(indexOf())
+    }
+      //remove book from shelfs and library
+
+      // console.log(book[i]);
+      // console.log(title);
     // }
-    // // }
-    else {
-       console.log("There is no shelf number " +s);
-    }
+    // this.books.splice(x,1);
   };
-  this.removeBook = function(x){
-    this.books.splice(x,1);
-  };
+  // this.string = function(){
+  //   var t = "Title:" + book[x].title.toString() + "  ";
+  //   var a = "Author:" + book[x].author.toString() + ",   ";
+  //   this.bookString += t.concat(a);
+  // };
 };
-
-// function addBkPerShelf(perShelf){   //add books by how many per shelf
-//   // bookShelfs= [];
-//   var i = 0;
-//   // shelfString
-//   for(s=0; s<shelfString.length; s++){
-//     while(i<perShelf && i<bookString.length){
-// // while(shelf[s] == 'undefined'){
-// //    s++;  error when remove shelf!!!!
-// // }
-//       shelf[s].addBook(i, s);
-//       console.log(shelf[s]);
-//       i++;
-//     }
-//     perShelf += perShelf;
-//   }
-// }
-  // var x = shelfString.indexOf(2);
-  // console.log(bookString);
-// addBkPerShelf(3);
-
-// console.log(bookShelfs);
-// console.log(shelf[2]);
-
-// // module.exports.Shelf = Shelf();
-// module.exports.shelfString = shelfString;
-// module.exports.bookShelfs = bookShelfs;
