@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <title>Awesome Page 2 Only JavaScript</title>
+<body>
+  <main>
+    <h1 >Average Awesomeness</h1>
+    <button type="button" onclick="info()" style='background-color: lightblue'>Click to see employee's information </button>
+
+    <p id = "name"> Name: <br> Occupaton: <br> Awesome Index: <br></p>
+
+    <button onclick="avgAwesome()" type="button" style='background-color: lightblue'>Calculate Average Awesomeness </button>
+
+    <h3 id='awesome-index'>Average Awesomeness:</h3>
+    <br>
+  </main>
+
+  <script>
+var people =[
+  {
+  name: 'Bob',
+  occupation: 'programmer',
+  awesomeIndex: 7,
+  },
+
+  {
+  name: 'Alice',
+  occupation: 'programmer',
+  awesomeIndex: 8,
+  },
+
+  {
+  name: 'Zaphod',
+  occupation: 'President of the Galaxy',
+  },
+
+  {
+  name: 'Alice',
+  occupation: 'programmer',
+  awesomeIndex: 9,
+  },
+
+  {
+  name: 'Julie',
+  occupation: 'x-programmer',
+  awesomeIndex: 4,
+  },
+
+];
+
+function info() {
+  var text = [];
+  for (i=0; i<people.length; i++) {
+    text += "<br>" + "Name:  " + people[i].name + "<br>" +
+     "Occupation:  " + people[i].occupation + "<br>" +
+     "Awesome Index:  " + people[i].awesomeIndex + "<br>";
+  }
+    document.getElementById("name").innerHTML =  text;
+}
+
+function avgAwesome() {
+  var total = 0;
+  var numProgrammers = 0;
+  for (i=0; i<people.length; i++){
+    if (people[i].occupation === 'programmer') {
+      total += people[i].awesomeIndex;
+      numProgrammers += 1;
+    }
+  }
+  document.getElementById("awesome-index").innerHTML =
+  "Average Awesomeness:  " + "<br>" + (total/numProgrammers).toFixed(1);
+}
+  </script>
+</body>
+</html>
