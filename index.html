@@ -39,24 +39,17 @@ Put five or more html elements in your index.html.  **
         margin: 10px;
       }
       footer   {
-        margin-top:50px;
-        background: #DCD8CF;
+        /*margin-top:50px;*/
+        /*background: #DCD8CF;*/
         padding: 10px;
-        min-width: 610px;
+        /*min-width: 610px;*/
       }
       #content {
         min-width: 650px;
-        max-width: 800px;
-        /*margin: 0 10% 50% 10%;*/
+        /*max-width: 800px;*/
+        margin: 0 10% 0% 10%;
         background-color: #F4EBC3;
-        padding-bottom: 230px;
         border: 5px solid #006899;
-      }
-      #menu {
-        float: left;
-        width: 40px;
-        height: 100
-
       }
       .pic {
         height: 120px;
@@ -72,16 +65,11 @@ Put five or more html elements in your index.html.  **
       }
   </style>
   <script>
-  // $(document).ready (function(){
-  //   $(".pic").hide();
-  // })
 
   $(document).ready (function(){
     $(".pic").click(function(){
       $(this).hide();
-      // $("p").css (font-size: '32px');
       $("p").addClass("bigP");
-      // $(".pic2").show();
     })
   })
 
@@ -122,22 +110,11 @@ Put five or more html elements in your index.html.  **
         <a href="https://github.com/tomosindberg/Library">GitHub Challenge #3 Link</a>
       </p>
     </div>
-    <div id="menu">
-      <a href="main.js">Main.js Link</a>
-      <a href="library.js">Library.js Link</a>
-      <a href="shelf.js">Shelf.js Link</a>
-      <a href="book.js">Book.js Link</a>
-      <br>
-    </div>
-
-  </div>
-
-
+</body>
 <footer>
   <div id = "email">Please email
   <a href = "mailto:tsindberg@gmail.com">tsindberg@gmail.com</a>
   for website problems.</div>
   <div id = "copyRight"> Copyright &copy 2015 Tomo Sindberg</div>
 </footer>
-</body>
 </html>

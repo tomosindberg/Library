@@ -32,11 +32,6 @@ var people =[
   }
 ];
 
-// staffInfo();
-// average();
-// console.log(average());
-
-
 function staffInfo() {
   var text = [];
   //var i = 0;
@@ -59,12 +54,8 @@ function average() {
   sum = _.reduce(aweArray, function(total, i){
     return total + i;
   });
-  // return (sum/_.size(aweArray));
   return _.round((sum/_.size(aweArray)),1);
 }
-
-
-
 
 $("#staff").click (function(){
   console.log("clicked staff button");
