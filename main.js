@@ -41,13 +41,15 @@ LObject.shelf[5].addBook("The Divine Comedy", "Dante Alighieri");
 LObject.shelf[5].addBook("The Great Gatsby", "F. Scott Fitzgerald");
 LObject.shelf[4].addBook("Madame Bovary", "Gustave Flaubert");
 
-LObject.shelf[5].removeBook("The Divine Comedy");//removed "The Divin Comedy"
-LObject.shelf[0].removeBook("The Di Comedy");  //no book called Di Comedy
+// LObject.shelf[5].removeBook("The Divine Comedy");//removed "The Divin Comedy"
+// LObject.shelf[0].removeBook("The Di Comedy");  //no book called Di Comedy
 
 // console.log(LObject.shelf[3].bookArray);//logs books on shelf[3]
 // console.log(LObject.shelf[3].bookString);
 // console.log(SObject.book[4]);//************War and Peace book
 // console.log(SObject.book[5]);
+
+console.log(LObject.shelf[0].bookArray);
 // console.log(library);  //*****
 // console.log(library.string()); //logs shelfs
-console.log(library.books());  //logs books on shelfs
+// console.log(library.books());  //logs books on shelfs

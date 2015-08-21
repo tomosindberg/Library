@@ -16,7 +16,6 @@ function genericSend(code,message,response) {
   response.writeHead(code,{"Content-Type":"text/plain"});
   response.end(message);
 }
-
 server.on('request',function(request,response) {
 
   var urlParams = url.parse(request.url),
@@ -28,7 +27,8 @@ server.on('request',function(request,response) {
     response.writeHead(200,{'Content-Type':cache[filename]['Content-Type']});
     response.write(cache[filename].file,'binary');
     response.end();
-  } else {
+  }
+  else {
     fs.exists(filename,function(exists) {
       if(!exists)
         return genericSend(404,'not found',response);
