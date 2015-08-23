@@ -50,6 +50,6 @@ LObject.shelf[4].addBook("Madame Bovary", "Gustave Flaubert");
 // console.log(SObject.book[5]);
 
 console.log(LObject.shelf[0].bookArray);
-// console.log(library);  //*****
-// console.log(library.string()); //logs shelfs
-// console.log(library.books());  //logs books on shelfs
+console.log(library);  //*****
+console.log(library.string()); //logs shelfs
+console.log(library.books());  //logs books on shelfs

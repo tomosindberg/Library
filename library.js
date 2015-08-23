@@ -13,7 +13,6 @@ module.exports.Library = function Library(name){
   this.addShelf = function(x){
     for(var i=0; i<=x; i++){
       if(shelf[i] === 'undefined'){
-        // shelf[i] = 'No shelf';
         i++;
       }
     }

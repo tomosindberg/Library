@@ -1,7 +1,6 @@
 var BObject = require('./book');
-var LObject = require('./library');
 var MObject = require('./main');
-book = [];
+var book = [];
 module.exports.book = book;
 
 module.exports.Shelf = function Shelf(num){
